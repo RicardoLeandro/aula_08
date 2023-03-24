@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta charset="uft-8">
+<meta nome="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    input{
+      
+        border-radius: 5%;
+        border-color: blue;
+    }
+body{
+    background-color: antiquewhite;
+}
+
+
+
+
+</style>
+
+<title>
+    calculo Temperatura
+</title>
+<script type="text/Javascript">
+    //°C=(°F-32)/1.8
+    //°C=K-273.15
+
+    function Converter(){
+        let c = document.getElementById("tempC") .value;
+        let f = document.getElementById("tempF") .value;
+        let k = document.getElementById("tempK") .value;
+        
+if(f !=""){
+    c =(f-32)/1.8;
+    document.getElementById("tempC").value = c;
+    k = (f-32)/1.8+273.15;
+    document.getElementById("tempK").value = k;
+}
+
+else if(c !=""){
+f =(c*9/5)+ 32;
+document.getElementById("tempF").value =f;
+k = c*1+273.15;
+document.getElementById("tempK").value =k;
+}
+
+else if(k !=""){
+    f =(k-273.15)*9/5 +32;
+    document.getElementById("tempF").value =f;
+    c =k-273.15;
+    document.getElementById("tempC").value =c;
+}
+
+else if (k==""&& f==""&& k==""){
+    alert('os campos estão vazios, preencher o campo.');
+    document.getElementById("tempF").focus;
+    document.getElementById("tempF").style.bordercolor= "red";
+    document.getElementById("tempC").focus;
+    document.getElementById("tempC").style.bordercolor = "red";
+    document.getElementById("tempK").focus;
+    document.getElementById("tempK").style.bordercolor = "red";
+}
+
+    }
+
+    function Limpar(){
+        document.getElementById("tempF").value ="";
+        document.getElementById("tempC").value ="";
+        document.getElementById("tempK").value ="";
+    }
+
+    </script>
+
+    </head>
+
+<body>
+<h2>Página com entrada de dados e operações matemática</h2>
+<fieldset>
+<form>
+
+    <label for="tempF">Farenheit °F</label><br>
+    <input type="number" id="tempF" name="tempF" placeholder="Farenheit"><br><br>
+
+    <label for="tempC">Celsius °C</label><br>
+    <input type="number" id="tempC" name="tempC" placeholder="Celsius"><br><br>
+
+    <label for="tempK">Kelvim °K</label><br>
+    <input type="number" id="tempK" name="tempK" placeholder="Kelvin"><br><br>
+
+
+<input type="button" id="btnConverter" onclick="Converter()" value="Converter">
+<input type="button" id="btnLimpar" onclick="Limpar()" value="Limpar">
+
+</fieldset>
+
+</form>
+</body>
+
+
+
+
+</html>
